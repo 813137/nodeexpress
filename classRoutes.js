@@ -33,7 +33,9 @@ router.get('/api/get/:id', function (req, res) {
 })
 
 router.post('/api/create', function (req, res) {
-  console.log('creating a student entry')
+  console.log('creating the following student:', req.body.student)
+  classList.push(req.body.student)
+  res.redirect(req.baseUrl + '/api/list')
 })
 
 router.post('api/delete', function (req, res) {
