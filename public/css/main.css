@@ -1,0 +1,13 @@
+body {
+    background-color: powderblue;
+}
+#addStudentButton {
+    color: blue;
+}
+.student {
+    color: red;
+    border: 5px solid black;
+}
+.button {
+    btn btn-primary
+}

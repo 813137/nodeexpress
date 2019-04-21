@@ -12,8 +12,9 @@ let classRouter = require('./classRoutes')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(mainRouter)
+app.use('/', mainRouter)
 app.use('/class', classRouter)
+app.use('/cdn', express.static('public'))
 
 let port = process.env.PORT || 3000
 app.listen(port)

@@ -12,37 +12,43 @@ router.get('/', function (req, res) {
 })
 
 router.get('/create', function (req, res) {
-  res.sendFile(path.join(__dirname, 'views', 'class', 'index.html'))
+  res.sendFile(path.join(__dirname, 'views', 'class', 'create.html'))
 })
 
 router.get('/delete', function (req, res) {
   res.sendFile(path.join(__dirname, 'views', 'class', 'delete.html'))
 })
 
-router.post('/edit', function (req, res) {
+router.get('/edit', function (req, res) {
   res.sendFile(path.join(__dirname, 'views', 'class', 'edit.html'))
 })
 
 // RESTful api
-router.get('/api/list', function (req, res) {
+router.get('/list', function (req, res) {
   res.json(classList) // Respond with JSON
 })
 
-router.get('/api/get/:id', function (req, res) {
+router.get('/class/get/:id', function (req, res) {
   res.json(classList[req.params.id])
 })
 
-router.post('/api/create', function (req, res) {
-  console.log('creating the following student:', req.body.student)
-  classList.push(req.body.student)
-  res.redirect(req.baseUrl + '/api/list')
+router.post('/create', function (req, res) {
+  console.log('creating the following student:', req.body)
+  classList.push(req.body) // create an object from all fields entered in a form
+  res.redirect(req.baseUrl + '/')
 })
 
-router.post('api/delete', function (req, res) {
-  console.log('deleting a sttudent entry')
+router.post('/delete', function (req, res) {
+  console.log('deleting the following student:', req.body)
+  res.redirect(req.baseUrl + '/class/list')
+  classList.forEach(element => {
+    if (element.studentNumber === req.body.studentNumber) {
+      classList.splice(element, 1)
+    }
+  })
 })
 
-router.post('api/edit', function (req, res) {
+router.post('/edit', function (req, res) {
   console.log('editing a student entry')
 })
 

@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="en-us">
-    <head>
-        <title>Delete Student</title>
-        <meta charset="utf-8"/>
+<html>
+    <head lang="en">
+        <title>Class List: Delete</title>
+        <meta charset="utf-8" />
     </head>
     <body>
-        <h1>Delete student from class list</h1>
-        <button id="delete">Delete</button>
+        <form action="/class/delete" method="POST">
+        <div>
+            <label for="studentNumber">Enter Student Number:</label>
+            <input type="text" id="studentnumber" name="studentNumber">
+        </div>
+
+        <div class="button">
+            <button type="submit">Delete</button>
+        </div>
+        </form>
     </body>
 </html>

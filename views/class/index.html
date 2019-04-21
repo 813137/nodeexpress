@@ -1,15 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Home Page</title>
+        <title>Class List</title>
+        <meta charset="utf-8"/>
+        <script src="/cdn/scripts/index.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Class List</h1>
-
-        <input type="text" id="search-text" placeholder="Filter students">
-        <div id="students"></div>
-
-        <input type="text" id="new-student-text" placeholder="Name">
-        <button id="add-student">Add new student</button>
+        <h1>Students in the School of EIE:</h1>
+        <ol id="classList">
+            <!--The list of students int he school-->
+        </ol>
+        <form action="/class/create" method="post">
+            <div class="nameInput">
+                <label for="studentName_">Enter The Student's Name:</label>
+                <input type="text" id="student" name="student">
+            </div>
+            <div class="idInput">
+                <label for="studentNumber">Enter The Student Number:</label>
+                <input type="text" id="studentNumber" name="studentNumber">
+            </div>
+            <div class="button">
+                <button type="submit" id="addStudentButton">Add</button>
+            </div>
+        </form>
     </body>
 </html>
