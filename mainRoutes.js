@@ -7,7 +7,7 @@ let path = require('path')
 let mainRouter = express.Router()
 
 mainRouter.get('/', function (req, res) {
-  res.send('Hello World!')
+  res.sendFile(path.join(__dirname, 'views', 'class', 'index.html'))
 })
 
 mainRouter.get('/about', function (req, res) {
